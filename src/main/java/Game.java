@@ -1,5 +1,6 @@
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -37,5 +38,7 @@ public class Game {
     }
     private void processKey(KeyStroke key) {
         System.out.println(key);
-    }
+        if (key.getKeyType() == KeyType.ArrowUp) {
+            y++;
+       } else if (key.getKeyType() == KeyType.ArrowDown) {}}
 }
