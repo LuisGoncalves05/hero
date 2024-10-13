@@ -13,8 +13,8 @@ import java.io.IOException;
 public class Game {
     private final Screen screen;
 
-    private final int width = 200;
-    private final int height = 50;
+    private final int width = 20;
+    private final int height = 20;
     private final Arena arena = new Arena(width, height, new Hero(10, 10));
     private final Hero hero = arena.getHero();
 
@@ -34,6 +34,7 @@ public class Game {
     public void draw(Screen screen) throws IOException {
         screen.clear();
         screen.setCharacter(hero.getX(), hero.getY(), TextCharacter.fromCharacter('X')[0]);
+        hero.draw(screen.newTextGraphics());
         arena.draw(screen.newTextGraphics());
         screen.refresh();
     }
