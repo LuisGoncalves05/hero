@@ -15,8 +15,8 @@ public class Game {
 
     private final int width = 20;
     private final int height = 20;
-    private final Arena arena = new Arena(width, height, new Hero(10, 10));
-    private final Hero hero = arena.getHero();
+    private final Hero hero = new Hero(10, 10);
+    private final Arena arena = new Arena(width, height, hero);
 
     public Game() throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height);
@@ -49,8 +49,9 @@ public class Game {
     }
 
     public void moveHero(Position position) {
-        if (arena.canHeroMove(position))
+        if (arena.canHeroMove(position)) {
             hero.setPosition(position);
+        }
     }
 
     public void processKey(KeyStroke key) {
